@@ -22,10 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'password',
-        'eth_address',
-        'photo',
         'email',
-        'confirmed',
         'last_login'
     ];
 
@@ -38,9 +35,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'last_login',
-        'confirmed',
-        'id',
-        'updated_at'
     ];
 
     /**

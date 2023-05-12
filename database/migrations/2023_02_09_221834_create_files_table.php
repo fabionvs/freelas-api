@@ -31,12 +31,6 @@ class CreateFilesTable extends Migration
 
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('tb_users')->onUpdate('cascade')->onDelete('cascade');
-
-            $table->bigInteger('candy_id')->unsigned()->index()->nullable();
-            $table->foreign('candy_id')->references('id')->on('tb_candy')->onUpdate('cascade')->onDelete('cascade');
-
-            $table->bigInteger('post_id')->unsigned()->index()->nullable();
-            $table->foreign('post_id')->references('id')->on('tb_posts')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

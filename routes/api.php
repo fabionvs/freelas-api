@@ -26,13 +26,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/signup', [AuthController::class, 'signup']);
     Route::post('/file/upload', [FileController::class, 'upload']);
-    Route::post('/candy/create', [CandyController::class, 'create']);
 
 });
 Route::post('me', [AuthController::class, 'me']);
 Route::post('logout', [AuthController::class, 'logout']);
 Route::get('/news', [NewsController::class, 'search']);
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/chains', [ChainController::class, 'index']);
+Route::post('/signup', [AuthController::class, 'signup']);

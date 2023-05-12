@@ -19,13 +19,10 @@ class CreateBusinessTable extends Migration
             $table->text('description');
             $table->string('hashtags');
             $table->string('website')->nullable();
-            $table->string('google_business_link');
-            $table->string('link')->unique();
-            $table->json('properties')->nullable();
-            $table->json('stats')->nullable();
-            $table->json('levels')->nullable();
-            $table->boolean('explicit');
-            $table->boolean('public_chat');
+            $table->json('horarios')->nullable();
+            $table->json('info_adicionais')->nullable();
+            $table->string('latitude')->unique()->nullable();
+            $table->string('longitude')->unique()->nullable();
 
             $table->timestamps();
 

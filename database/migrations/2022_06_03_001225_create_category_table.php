@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCandyTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,8 +19,6 @@ class CreateCandyTable extends Migration
             $table->string('title');
             $table->string('icon')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('public_chat')->default(false);
-            $table->boolean('community')->default(false);
             $table->boolean('active')->default(false);
             $table->json('form')->nullable();
             $table->timestamps();

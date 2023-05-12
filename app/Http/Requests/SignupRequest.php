@@ -25,8 +25,11 @@ class SignupRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'image' => 'required:tb_users,photo',
-            'username' => 'required|unique:tb_users,username'
+            'username' => 'required|unique:tb_users,username',
+            'email' => 'required|unique:tb_users,email',
+            'password' => 'required',
+            'title' => 'required|unique:tb_business,title',
+            'description' => 'required',
         ];
 
         return $rules;

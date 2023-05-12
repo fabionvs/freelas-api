@@ -6,13 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
-class Category extends Model
+class Business extends Authenticatable
 {
-    protected $table = "tb_category";
+
+    protected $table = "tb_business";
 
     /**
      * The attributes that are mass assignable.
@@ -22,12 +20,20 @@ class Category extends Model
     protected $fillable = [
         'title',
         'description',
-        'active',
-        'form',
+        'hashtags',
+        'website',
+        'horarios',
+        'info_adicionais',
+        'user_id',
+        'category_id',
+        'latitude',
+        'longitude'
     ];
 
     protected $casts = [
-        'form' => 'array',
+        'info_adicionais' => 'array',
+        'horarios' => 'array',
     ];
+
 
 }

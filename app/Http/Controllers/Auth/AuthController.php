@@ -21,40 +21,18 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        $result = $this->authService->verifySignature(session()->pull('sign_message'), $request->input('signature'), $request->input('address'));
-        if ($result) {
-            $user = User::firstOrCreate([
-                'eth_address' => $request->input('address')
-            ], [
-                'eth_address' => $request->input('address'),
-                'last_login' => Carbon::now()
-            ]);
-            $login = Auth::login($user);
-            $chain = Redis::set('user:chain:'.Auth::user()->id, intval($request->input('chain_id')));
+            if (!Auth::attempt($request->only('username', 'password'))) {
+                return response(["success" => false], 403);
+            }
+            $user = User::where('username', $request->input('username'))->firstOrFail();
+            $token = $user->createToken('auth_token')->plainTextToken;
+
             return response([
                 "success" => true,
-                'user' => [
-                    'eth_address' => Auth::user()->eth_address,
-                    'photo' => Auth::user()->photo,
-                    'username' => Auth::user()->username,
-                ],
-                'new_user' => (Auth::user()->email == null)
+                'token' => $token
             ], 200);
-        } else {
-            return response(["success" => false], 403);
-        }
-
     }
 
-    public function sign()
-    {
-        $token = $this->authService->sign();
-
-        return response([
-            "success" => true,
-            'token' => $token
-        ], 200);
-    }
 
     public function signup(SignupRequest $request)
     {
