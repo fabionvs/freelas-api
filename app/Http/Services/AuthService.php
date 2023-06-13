@@ -28,6 +28,8 @@ class AuthService
                 'horarios' => $request->input('horarios'),
                 'info_adicionais' => $request->input('info_adicionais'),
                 'user_id' => $user->id,
+                'latitude' => $request->input('latitude'),
+                'longitude' => $request->input('longitude'),
                 'category_id' => $request->input('category_id'),
             ]);
 
@@ -43,7 +45,8 @@ class AuthService
                 return  [
                     "success" => true,
                     "user" => $user,
-                    "token" => $token
+                    "token" => $token,
+                    "business_id" => $business->id
                 ];
             }
             return  [

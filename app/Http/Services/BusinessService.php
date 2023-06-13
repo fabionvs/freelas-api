@@ -9,7 +9,7 @@ use App\Models\Files;
 use App\Http\Repository\BusinessRepository;
 use App\Http\Repository\CandyTransactionRepository;
 
-class CandyService
+class BusinessService
 {
     public function __construct(BusinessRepository $candyRepository)
     {

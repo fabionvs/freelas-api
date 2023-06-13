@@ -23,6 +23,7 @@ class FileController extends Controller
                 'file' => '/uploads/candy/'.$image->hashName(),
                 'format' => $image->getClientOriginalExtension(),
                 'user_id' => Auth::user()->id,
+                'business_id' => $request->input('business_id'),
                 'active' => true,
                 'link' => $image->hashName()
             ]);

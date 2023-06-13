@@ -35,5 +35,14 @@ class Business extends Authenticatable
         'horarios' => 'array',
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(Files::class);
+    }
 
 }

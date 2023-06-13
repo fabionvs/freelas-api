@@ -29,7 +29,8 @@ class Files extends Model
         'banned',
         'ban_description',
         'user_id',
-        'link'
+        'link',
+        'business_id'
     ];
 
     /**

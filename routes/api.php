@@ -4,10 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CandyController;
-use App\Http\Controllers\UserCandyController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ChainController;
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\NewsController;
 
 /*
@@ -32,5 +31,6 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('me', [AuthController::class, 'me']);
 Route::post('logout', [AuthController::class, 'logout']);
 Route::get('/news', [NewsController::class, 'search']);
+Route::get('/search', [BusinessController::class, 'search']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/signup', [AuthController::class, 'signup']);
